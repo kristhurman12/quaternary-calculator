@@ -1,7 +1,7 @@
 # Quaternary Calculator
 
 ## Description
-A calculator for quaternary numeral system.
+A quaternaryCalculator for quaternary numeral system.
 
 ## Contributors
 - Jacob Clark
