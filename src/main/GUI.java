@@ -13,10 +13,13 @@ public class GUI implements ActionListener {
     JButton equalsButton = new JButton("=");
     JButton plusButton = new JButton("+");
     JButton minusButton = new JButton("-");
-    JButton multButton = new JButton("*");
+    JButton multButton = new JButton("x");
     JButton divButton = new JButton("/");
     JButton squareButton = new JButton("^");
     JButton sqrtButton = new JButton("√");
+    JButton switchButton = new JButton("Quaternary/Decimal");
+
+    JTextField answerField = new JTextField();
 
     int defaultButtonWidth = 80;
     int defaultButtonHeight = 30;
@@ -52,6 +55,31 @@ public class GUI implements ActionListener {
         minusButton.setFocusable(false);
         minusButton.addActionListener(this);
 
+        multButton.setBounds(defaultButtonWidth*2 + buttonSpacing+10,420-buttonSpacing*4,defaultButtonWidth,defaultButtonHeight);
+        multButton.setFocusable(false);
+        multButton.addActionListener(this);
+
+        divButton.setBounds(10,420-buttonSpacing*6,defaultButtonWidth,defaultButtonHeight);
+        divButton.setFocusable(false);
+        divButton.addActionListener(this);
+
+        squareButton.setBounds(defaultButtonWidth+buttonSpacing,420-buttonSpacing*6,defaultButtonWidth,defaultButtonHeight);
+        squareButton.setFocusable(false);
+        squareButton.addActionListener(this);
+
+        sqrtButton.setBounds(defaultButtonWidth*2 + buttonSpacing+10,420-buttonSpacing*6,defaultButtonWidth,defaultButtonHeight);
+        sqrtButton.setFocusable(false);
+        sqrtButton.addActionListener(this);
+
+        switchButton.setBounds(10,420-buttonSpacing*8,defaultButtonWidth*3+buttonSpacing,defaultButtonHeight);
+        switchButton.setFocusable(false);
+        switchButton.addActionListener(this);
+
+        answerField.setBounds(10, 420-buttonSpacing*8-55,260, 45);
+        answerField.setEditable(false);
+
+        frame.add(answerField);
+
         frame.add(zeroButton);
         frame.add(oneButton);
         frame.add(twoButton);
@@ -59,15 +87,20 @@ public class GUI implements ActionListener {
         frame.add(equalsButton);
         frame.add(plusButton);
         frame.add(minusButton);
+        frame.add(multButton);
+        frame.add(divButton);
+        frame.add(divButton);
+        frame.add(sqrtButton);
+        frame.add(squareButton);
+        frame.add(switchButton);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500,500);
+        frame.setSize(300,500);
         frame.setLayout(null);
         frame.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
     }
 }
