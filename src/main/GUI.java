@@ -17,6 +17,7 @@ public class GUI implements ActionListener {
     JButton divButton = new JButton("/");
     JButton squareButton = new JButton("^");
     JButton sqrtButton = new JButton("√");
+    JButton clearButton = new JButton("CE");
     JButton switchButton = new JButton("Quaternary/Decimal");
 
     JTextField answerField = new JTextField();
@@ -73,9 +74,13 @@ public class GUI implements ActionListener {
         sqrtButton.setFocusable(false);
         sqrtButton.addActionListener(this);
 
-        switchButton.setBounds(10,bottomRow-buttonSpacing*8,defaultButtonWidth*3+buttonSpacing,defaultButtonHeight);
+        switchButton.setBounds(defaultButtonWidth+buttonSpacing,bottomRow-buttonSpacing*8,defaultButtonWidth*2+10,defaultButtonHeight);
         switchButton.setFocusable(false);
         switchButton.addActionListener(this);
+
+        clearButton.setBounds(10,bottomRow-buttonSpacing*8,defaultButtonWidth,defaultButtonHeight);
+        clearButton.setFocusable(false);
+        clearButton.addActionListener(this);
 
         answerField.setBounds(10, bottomRow-buttonSpacing*8-55,260, 45);
         answerField.setEditable(false);
@@ -95,6 +100,7 @@ public class GUI implements ActionListener {
         frame.add(sqrtButton);
         frame.add(squareButton);
         frame.add(switchButton);
+        frame.add(clearButton);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300,frameHeight);
@@ -156,6 +162,13 @@ public class GUI implements ActionListener {
                 temp = calculator.add(operationNumber1,operationNumber2);
             }
             answerField.setText(calculator.decimalToQuaternary(temp));
+        }
+        else if (variable == clearButton){
+            input = "";
+            input2 = "";
+            operation = "";
+            answerField.setText("");
+            isDecimal = false;
         }
         /*
         JButton variable = (JButton) e.getSource();
