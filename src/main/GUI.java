@@ -102,7 +102,50 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
     }
 
+    int decimalNumber;
+    String input;
+    quaternaryCalculator calculator = new quaternaryCalculator();
+    Boolean isDecimal = false;
+
     @Override
+    //Switch case would not work because JButtons are not valid in a switch case
+    //Candidate for refactoring
     public void actionPerformed(ActionEvent e) {
+        JButton variable = (JButton) e.getSource();
+        if (variable == oneButton){
+            answerField.setText(answerField.getText()+"1");
+        }
+        else if (variable== zeroButton) {
+            answerField.setText(answerField.getText()+"0");
+        }
+        else if (variable== twoButton) {
+            answerField.setText(answerField.getText()+"2");
+        }
+        else if (variable== threeButton) {
+            answerField.setText(answerField.getText()+"3");
+        }
+        else if (variable== switchButton) {
+            if (isDecimal.equals(false)) {
+                input = answerField.getText();
+                decimalNumber = calculator.quaternaryToDecimal(input);
+                answerField.setText(String.valueOf(decimalNumber));
+                isDecimal = true;
+            }
+            else{
+                input = calculator.decimalToQuaternary(Integer.parseInt(answerField.getText()));
+                answerField.setText(input);
+                isDecimal = false;
+            }
+        }
+        /*
+        JButton variable = (JButton) e.getSource();
+        switch (variable){
+            case oneButton:
+                answerField.setText(answerField.getText()+"1");
+                break;
+            case zeroButton:
+
+        }
+         */
     }
 }
