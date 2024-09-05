@@ -40,10 +40,25 @@ public class GUI implements ActionListener {
         threeButton.setFocusable(false);
         threeButton.addActionListener(this);
 
+        equalsButton.setBounds(defaultButtonWidth*2 + buttonSpacing+10,420-buttonSpacing*2,defaultButtonWidth,defaultButtonHeight*2+10);
+        equalsButton.setFocusable(false);
+        equalsButton.addActionListener(this);
+
+        plusButton.setBounds(10,420-buttonSpacing*4,defaultButtonWidth,defaultButtonHeight);
+        plusButton.setFocusable(false);
+        plusButton.addActionListener(this);
+
+        minusButton.setBounds(defaultButtonWidth+buttonSpacing,420-buttonSpacing*4,defaultButtonWidth,defaultButtonHeight);
+        minusButton.setFocusable(false);
+        minusButton.addActionListener(this);
+
         frame.add(zeroButton);
         frame.add(oneButton);
         frame.add(twoButton);
         frame.add(threeButton);
+        frame.add(equalsButton);
+        frame.add(plusButton);
+        frame.add(minusButton);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500,500);
