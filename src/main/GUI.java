@@ -24,58 +24,60 @@ public class GUI implements ActionListener {
     int defaultButtonWidth = 80;
     int defaultButtonHeight = 30;
     int buttonSpacing = 20;
+    int frameHeight = 310;
+    int bottomRow = frameHeight-80;
 
     GUI(){
 
-        zeroButton.setBounds(10,420,defaultButtonWidth,defaultButtonHeight);
+        zeroButton.setBounds(10,bottomRow,defaultButtonWidth,defaultButtonHeight);
         zeroButton.setFocusable(false);
         zeroButton.addActionListener(this);
 
-        oneButton.setBounds(defaultButtonWidth + buttonSpacing,420,defaultButtonWidth,defaultButtonHeight);
+        oneButton.setBounds(defaultButtonWidth + buttonSpacing,bottomRow,defaultButtonWidth,defaultButtonHeight);
         oneButton.setFocusable(false);
         oneButton.addActionListener(this);
 
-        twoButton.setBounds(10,420-buttonSpacing*2,defaultButtonWidth,defaultButtonHeight);
+        twoButton.setBounds(10,bottomRow-buttonSpacing*2,defaultButtonWidth,defaultButtonHeight);
         twoButton.setFocusable(false);
         twoButton.addActionListener(this);
 
-        threeButton.setBounds(defaultButtonWidth+buttonSpacing,420-buttonSpacing*2,defaultButtonWidth,defaultButtonHeight);
+        threeButton.setBounds(defaultButtonWidth+buttonSpacing,bottomRow-buttonSpacing*2,defaultButtonWidth,defaultButtonHeight);
         threeButton.setFocusable(false);
         threeButton.addActionListener(this);
 
-        equalsButton.setBounds(defaultButtonWidth*2 + buttonSpacing+10,420-buttonSpacing*2,defaultButtonWidth,defaultButtonHeight*2+10);
+        equalsButton.setBounds(defaultButtonWidth*2 + buttonSpacing+10,bottomRow-buttonSpacing*2,defaultButtonWidth,defaultButtonHeight*2+10);
         equalsButton.setFocusable(false);
         equalsButton.addActionListener(this);
 
-        plusButton.setBounds(10,420-buttonSpacing*4,defaultButtonWidth,defaultButtonHeight);
+        plusButton.setBounds(10,bottomRow-buttonSpacing*4,defaultButtonWidth,defaultButtonHeight);
         plusButton.setFocusable(false);
         plusButton.addActionListener(this);
 
-        minusButton.setBounds(defaultButtonWidth+buttonSpacing,420-buttonSpacing*4,defaultButtonWidth,defaultButtonHeight);
+        minusButton.setBounds(defaultButtonWidth+buttonSpacing,bottomRow-buttonSpacing*4,defaultButtonWidth,defaultButtonHeight);
         minusButton.setFocusable(false);
         minusButton.addActionListener(this);
 
-        multButton.setBounds(defaultButtonWidth*2 + buttonSpacing+10,420-buttonSpacing*4,defaultButtonWidth,defaultButtonHeight);
+        multButton.setBounds(defaultButtonWidth*2 + buttonSpacing+10,bottomRow-buttonSpacing*4,defaultButtonWidth,defaultButtonHeight);
         multButton.setFocusable(false);
         multButton.addActionListener(this);
 
-        divButton.setBounds(10,420-buttonSpacing*6,defaultButtonWidth,defaultButtonHeight);
+        divButton.setBounds(10,bottomRow-buttonSpacing*6,defaultButtonWidth,defaultButtonHeight);
         divButton.setFocusable(false);
         divButton.addActionListener(this);
 
-        squareButton.setBounds(defaultButtonWidth+buttonSpacing,420-buttonSpacing*6,defaultButtonWidth,defaultButtonHeight);
+        squareButton.setBounds(defaultButtonWidth+buttonSpacing,bottomRow-buttonSpacing*6,defaultButtonWidth,defaultButtonHeight);
         squareButton.setFocusable(false);
         squareButton.addActionListener(this);
 
-        sqrtButton.setBounds(defaultButtonWidth*2 + buttonSpacing+10,420-buttonSpacing*6,defaultButtonWidth,defaultButtonHeight);
+        sqrtButton.setBounds(defaultButtonWidth*2 + buttonSpacing+10,bottomRow-buttonSpacing*6,defaultButtonWidth,defaultButtonHeight);
         sqrtButton.setFocusable(false);
         sqrtButton.addActionListener(this);
 
-        switchButton.setBounds(10,420-buttonSpacing*8,defaultButtonWidth*3+buttonSpacing,defaultButtonHeight);
+        switchButton.setBounds(10,bottomRow-buttonSpacing*8,defaultButtonWidth*3+buttonSpacing,defaultButtonHeight);
         switchButton.setFocusable(false);
         switchButton.addActionListener(this);
 
-        answerField.setBounds(10, 420-buttonSpacing*8-55,260, 45);
+        answerField.setBounds(10, bottomRow-buttonSpacing*8-55,260, 45);
         answerField.setEditable(false);
 
         frame.add(answerField);
@@ -95,7 +97,7 @@ public class GUI implements ActionListener {
         frame.add(switchButton);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300,500);
+        frame.setSize(300,frameHeight);
         frame.setLayout(null);
         frame.setVisible(true);
     }
