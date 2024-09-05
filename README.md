@@ -12,6 +12,7 @@ A calculator for quaternary numeral system.
 
 # Task Distribution
 - Kris Thurman = The system can do operations with two numbers.
+- Devlin Hicks = Bug Tester & Fixer
 
 # Meetings
 09/03/2024 10:35am - 10:45am
