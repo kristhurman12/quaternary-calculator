@@ -103,7 +103,12 @@ public class GUI implements ActionListener {
     }
 
     int decimalNumber;
+    int operationNumber1;
+    int operationNumber2;
+    String field;
     String input;
+    String input2;
+    String operation;
     quaternaryCalculator calculator = new quaternaryCalculator();
     Boolean isDecimal = false;
 
@@ -126,16 +131,31 @@ public class GUI implements ActionListener {
         }
         else if (variable== switchButton) {
             if (isDecimal.equals(false)) {
-                input = answerField.getText();
-                decimalNumber = calculator.quaternaryToDecimal(input);
+                field = answerField.getText();
+                decimalNumber = calculator.quaternaryToDecimal(field);
                 answerField.setText(String.valueOf(decimalNumber));
                 isDecimal = true;
             }
             else{
-                input = calculator.decimalToQuaternary(Integer.parseInt(answerField.getText()));
-                answerField.setText(input);
+                field = calculator.decimalToQuaternary(Integer.parseInt(answerField.getText()));
+                answerField.setText(field);
                 isDecimal = false;
             }
+        }
+        else if (variable == plusButton) {
+            input = answerField.getText();
+            operation = "+";
+            answerField.setText("");
+        }
+        else if (variable == equalsButton) {
+            int temp = 0;
+            input2 = answerField.getText();
+            operationNumber1 = calculator.quaternaryToDecimal(input);
+            operationNumber2 = calculator.quaternaryToDecimal(input2);
+            if(operation.equals("+")){
+                temp = calculator.add(operationNumber1,operationNumber2);
+            }
+            answerField.setText(calculator.decimalToQuaternary(temp));
         }
         /*
         JButton variable = (JButton) e.getSource();
