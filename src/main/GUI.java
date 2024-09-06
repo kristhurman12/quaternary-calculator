@@ -18,10 +18,7 @@ public class GUI implements ActionListener {
     JButton squareButton = new JButton("^");
     JButton sqrtButton = new JButton("√");
     JButton clearButton = new JButton("CE");
-    JButton switchButton = new JButton("Decimal");
-
-    JButton switchButton2 = new JButton("Quaternary");
-
+    JButton switchButton = new JButton("Decimal/Quaternary");
 
     JTextField answerField = new JTextField();
 
@@ -77,13 +74,9 @@ public class GUI implements ActionListener {
         sqrtButton.setFocusable(false);
         sqrtButton.addActionListener(this);
 
-        switchButton.setBounds(defaultButtonWidth+buttonSpacing,bottomRow-buttonSpacing*8,defaultButtonWidth,defaultButtonHeight);
+        switchButton.setBounds(defaultButtonWidth+buttonSpacing,bottomRow-buttonSpacing*8,defaultButtonWidth*2+10,defaultButtonHeight);
         switchButton.setFocusable(false);
         switchButton.addActionListener(this);
-
-        switchButton2.setBounds(defaultButtonWidth*2+buttonSpacing + 10,bottomRow-buttonSpacing*8,defaultButtonWidth,defaultButtonHeight);
-        switchButton2.setFocusable(false);
-        switchButton2.addActionListener(this);
 
         clearButton.setBounds(10,bottomRow-buttonSpacing*8,defaultButtonWidth,defaultButtonHeight);
         clearButton.setFocusable(false);
@@ -107,7 +100,6 @@ public class GUI implements ActionListener {
         frame.add(sqrtButton);
         frame.add(squareButton);
         frame.add(switchButton);
-        frame.add(switchButton2);
         frame.add(clearButton);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -132,27 +124,49 @@ public class GUI implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton variable = (JButton) e.getSource();
         if (variable == oneButton) {
-            answerField.setText(answerField.getText() + "1");
+            input = answerField.getText();
+            if (isDecimal.equals(true)) {
+                input = calculator.decimalToQuaternary(Integer.parseInt(input));
+                isDecimal = false;
+            }
+            input = input+"1";
+            answerField.setText(input);
         } else if (variable == zeroButton) {
-            answerField.setText(answerField.getText() + "0");
+            input = answerField.getText();
+            if (isDecimal.equals(true)) {
+                input = calculator.decimalToQuaternary(Integer.parseInt(input));
+                isDecimal = false;
+            }
+            input = input+"0";
+            answerField.setText(input);
         } else if (variable == twoButton) {
-            answerField.setText(answerField.getText() + "2");
+            input = answerField.getText();
+            if (isDecimal.equals(true)) {
+                input = calculator.decimalToQuaternary(Integer.parseInt(input));
+                isDecimal = false;
+            }
+            input = input+"2";
+            answerField.setText(input);
         } else if (variable == threeButton) {
-            answerField.setText(answerField.getText() + "3");
+            input = answerField.getText();
+            if (isDecimal.equals(true)) {
+                input = calculator.decimalToQuaternary(Integer.parseInt(input));
+                isDecimal = false;
+            }
+            input = input+"3";
+            answerField.setText(input);
         } else if (variable == switchButton) {
             if (isDecimal.equals(false)) {
-                if (operation.isEmpty()) {
-                    field = answerField.getText();
-                    decimalNumber = calculator.quaternaryToDecimal(field);
-                    answerField.setText(String.valueOf(decimalNumber));
-                    isDecimal = true;
-                }
+                field = answerField.getText();
+                decimalNumber = calculator.quaternaryToDecimal(field);
+                answerField.setText(String.valueOf(decimalNumber));
+                isDecimal = true;
             }
-        } else if (variable == switchButton2) {
-            if (isDecimal.equals(true)) {
-                field = calculator.decimalToQuaternary(Integer.parseInt(answerField.getText()));
+            else{
+                field = answerField.getText();
+                field = calculator.decimalToQuaternary(Integer.parseInt(field));
                 answerField.setText(field);
-                isDecimal = false;
+                isDecimal=false;
             }
         } else if (variable == plusButton) {
             if (isDecimal.equals(true)) {
@@ -233,6 +247,5 @@ public class GUI implements ActionListener {
             answerField.setText("");
             isDecimal = false;
         }
-
     }
 }
