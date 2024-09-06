@@ -82,7 +82,7 @@ public class GUI implements ActionListener {
         clearButton.setFocusable(false);
         clearButton.addActionListener(this);
 
-        answerField.setBounds(10, bottomRow-buttonSpacing*8-55,260, 45);
+        answerField.setBounds(10, bottomRow-buttonSpacing*8-55,defaultButtonWidth*3+20, 45);
         answerField.setEditable(false);
 
         frame.add(answerField);
