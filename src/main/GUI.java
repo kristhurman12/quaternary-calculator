@@ -122,7 +122,7 @@ public class GUI implements ActionListener {
     String field;
     String input;
     String input2;
-    String operation;
+    String operation = "";
     quaternaryCalculator calculator = new quaternaryCalculator();
     Boolean isDecimal = false;
 
@@ -145,11 +145,13 @@ public class GUI implements ActionListener {
         }
         else if (variable== switchButton) {
             if (isDecimal.equals(false)) {
-                System.out.println("to Decimal");
-                field = answerField.getText();
-                decimalNumber = calculator.quaternaryToDecimal(field);
-                answerField.setText(String.valueOf(decimalNumber));
-                isDecimal = true;
+                if (operation == "") {
+                    System.out.println("to Decimal");
+                    field = answerField.getText();
+                    decimalNumber = calculator.quaternaryToDecimal(field);
+                    answerField.setText(String.valueOf(decimalNumber));
+                    isDecimal = true;
+                }
             }
             else{
 
@@ -243,6 +245,8 @@ public class GUI implements ActionListener {
                 };
                 answerField.setText(calculator.decimalToQuaternary(temp));
                 operation = "";
+                input2 = "";
+
             }
         }
         else if (variable == clearButton){
@@ -252,5 +256,6 @@ public class GUI implements ActionListener {
             answerField.setText("");
             isDecimal = false;
         }
+
     }
 }
