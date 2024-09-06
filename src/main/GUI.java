@@ -176,11 +176,10 @@ public class GUI implements ActionListener {
             sqrt = calculator.squareRoot(temp);
             answerField.setText(calculator.decimalToQuaternary(sqrt));
         }
-
         else if (variable == squareButton){
+            input = answerField.getText();
             int temp = 0;
             int square = 0;
-            input = answerField.getText();
             temp = calculator.quaternaryToDecimal(input);
             square = calculator.square(temp);
             answerField.setText(calculator.decimalToQuaternary(square));
@@ -198,6 +197,7 @@ public class GUI implements ActionListener {
                 default -> temp;
             };
             answerField.setText(calculator.decimalToQuaternary(temp));
+            operation = "";
         }
         else if (variable == clearButton){
             input = "";
