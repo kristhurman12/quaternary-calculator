@@ -149,55 +149,76 @@ public class GUI implements ActionListener {
             }
         }
         else if (variable == plusButton) {
-            input = answerField.getText();
-            operation = "+";
-            answerField.setText("");
+            if (isDecimal.equals(false)) {
+
+                input = answerField.getText();
+                operation = "+";
+                answerField.setText("");
+            }
         }
         else if (variable == minusButton) {
-            input = answerField.getText();
-            operation = "-";
-            answerField.setText("");
+            if (isDecimal.equals(false)) {
+
+                input = answerField.getText();
+                operation = "-";
+                answerField.setText("");
+            }
         }
         else if (variable == multButton) {
-            input = answerField.getText();
-            operation = "x";
-            answerField.setText("");
+            if (isDecimal.equals(false)) {
+
+                input = answerField.getText();
+                operation = "x";
+                answerField.setText("");
+            }
         }
         else if (variable == divButton) {
-            input = answerField.getText();
-            operation = "/";
-            answerField.setText("");
+            if (isDecimal.equals(false)) {
+
+                input = answerField.getText();
+                operation = "/";
+                answerField.setText("");
+            }
         }
         else if (variable == sqrtButton){
-            int temp = 0;
-            int sqrt = 0;
-            input = answerField.getText();
-            temp = calculator.quaternaryToDecimal(input);
-            sqrt = calculator.squareRoot(temp);
-            answerField.setText(calculator.decimalToQuaternary(sqrt));
+            if (isDecimal.equals(false)) {
+
+                int temp = 0;
+                int sqrt = 0;
+                input = answerField.getText();
+                temp = calculator.quaternaryToDecimal(input);
+                sqrt = calculator.squareRoot(temp);
+                answerField.setText(calculator.decimalToQuaternary(sqrt));
+            }
         }
         else if (variable == squareButton){
-            input = answerField.getText();
-            int temp = 0;
-            int square = 0;
-            temp = calculator.quaternaryToDecimal(input);
-            square = calculator.square(temp);
-            answerField.setText(calculator.decimalToQuaternary(square));
+            if (isDecimal.equals(false)) {
+
+                input = answerField.getText();
+                int temp = 0;
+                int square = 0;
+                temp = calculator.quaternaryToDecimal(input);
+                square = calculator.square(temp);
+                answerField.setText(calculator.decimalToQuaternary(square));
+            }
         }
         else if (variable == equalsButton) {
-            int temp = 0;
-            input2 = answerField.getText();
-            operationNumber1 = calculator.quaternaryToDecimal(input);
-            operationNumber2 = calculator.quaternaryToDecimal(input2);
-            temp = switch (operation) {
-                case "+" -> calculator.add(operationNumber1, operationNumber2);
-                case "-" -> calculator.subtract(operationNumber1, operationNumber2);
-                case "x" -> calculator.multiply(operationNumber1, operationNumber2);
-                case "/" -> calculator.divide(operationNumber1, operationNumber2);
-                default -> temp;
-            };
-            answerField.setText(calculator.decimalToQuaternary(temp));
-            operation = "";
+            if (isDecimal.equals(false)) {
+
+                int temp = 0;
+                input2 = answerField.getText();
+                operationNumber1 = calculator.quaternaryToDecimal(input);
+                operationNumber2 = calculator.quaternaryToDecimal(input2);
+                temp = switch (operation) {
+                    case "+" -> calculator.add(operationNumber1, operationNumber2);
+                    case "-" -> calculator.subtract(operationNumber1, operationNumber2);
+                    case "x" -> calculator.multiply(operationNumber1, operationNumber2);
+                    case "/" -> calculator.divide(operationNumber1, operationNumber2);
+                    default -> temp;
+                };
+                answerField.setText(calculator.decimalToQuaternary(temp));
+                operation = "";
+            }
         }
         else if (variable == clearButton){
             input = "";
