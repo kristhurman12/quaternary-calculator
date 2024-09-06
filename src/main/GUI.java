@@ -192,10 +192,8 @@ public class GUI implements ActionListener {
                 input = calculator.decimalToQuaternary(Integer.parseInt(input));
                 isDecimal = false;
             }
-            int temp;
-            int sqrt;
-            temp = calculator.quaternaryToDecimal(input);
-            sqrt = calculator.squareRoot(temp);
+            int temp = calculator.quaternaryToDecimal(input);
+            int sqrt = calculator.squareRoot(temp);
             answerField.setText(calculator.decimalToQuaternary(sqrt));
         }
         else if (variable == squareButton){
@@ -204,10 +202,8 @@ public class GUI implements ActionListener {
                 input = calculator.decimalToQuaternary(Integer.parseInt(input));
                 isDecimal=false;
             }
-            int temp;
-            int square;
-            temp = calculator.quaternaryToDecimal(input);
-            square = calculator.square(temp);
+            int temp = calculator.quaternaryToDecimal(input);
+            int square = calculator.square(temp);
             answerField.setText(calculator.decimalToQuaternary(square));
         }
         else if (variable == equalsButton) {
