@@ -131,123 +131,104 @@ public class GUI implements ActionListener {
     //Candidate for refactoring
     public void actionPerformed(ActionEvent e) {
         JButton variable = (JButton) e.getSource();
-        if (variable == oneButton){
-            answerField.setText(answerField.getText()+"1");
-        }
-        else if (variable== zeroButton) {
-            answerField.setText(answerField.getText()+"0");
-        }
-        else if (variable== twoButton) {
-            answerField.setText(answerField.getText()+"2");
-        }
-        else if (variable== threeButton) {
-            answerField.setText(answerField.getText()+"3");
-        }
-        else if (variable== switchButton) {
+        if (variable == oneButton) {
+            answerField.setText(answerField.getText() + "1");
+        } else if (variable == zeroButton) {
+            answerField.setText(answerField.getText() + "0");
+        } else if (variable == twoButton) {
+            answerField.setText(answerField.getText() + "2");
+        } else if (variable == threeButton) {
+            answerField.setText(answerField.getText() + "3");
+        } else if (variable == switchButton) {
             if (isDecimal.equals(false)) {
-                if (operation == "") {
-                    System.out.println("to Decimal");
+                if (operation.isEmpty()) {
                     field = answerField.getText();
                     decimalNumber = calculator.quaternaryToDecimal(field);
                     answerField.setText(String.valueOf(decimalNumber));
                     isDecimal = true;
                 }
             }
-            else{
-
-            }
-
-        }
-
-        else if (variable== switchButton2) {
+        } else if (variable == switchButton2) {
             if (isDecimal.equals(true)) {
-                System.out.println("to Quaternary");
-
                 field = calculator.decimalToQuaternary(Integer.parseInt(answerField.getText()));
                 answerField.setText(field);
                 isDecimal = false;
             }
-            else{
-
+        } else if (variable == plusButton) {
+            if (isDecimal.equals(true)) {
+                input = calculator.decimalToQuaternary(Integer.parseInt(input));
+                isDecimal = false;
             }
-
-        }
-
-
-
-        else if (variable == plusButton) {
-            if (isDecimal.equals(false)) {
-
-                input = answerField.getText();
-                operation = "+";
-                answerField.setText("");
+            input = answerField.getText();
+            operation = "+";
+            answerField.setText("");
+        } else if (variable == minusButton) {
+            input = answerField.getText();
+            if (isDecimal.equals(true)) {
+                input = calculator.decimalToQuaternary(Integer.parseInt(input));
+                isDecimal = false;
             }
-        }
-        else if (variable == minusButton) {
-            if (isDecimal.equals(false)) {
-
-                input = answerField.getText();
-                operation = "-";
-                answerField.setText("");
+            operation = "-";
+            answerField.setText("");
+        } else if (variable == multButton) {
+            input = answerField.getText();
+            if (isDecimal.equals(true)) {
+                input = calculator.decimalToQuaternary(Integer.parseInt(input));
+                isDecimal = false;
             }
-        }
-        else if (variable == multButton) {
-            if (isDecimal.equals(false)) {
-
-                input = answerField.getText();
-                operation = "x";
-                answerField.setText("");
+            operation = "x";
+            answerField.setText("");
+        } else if (variable == divButton) {
+            input = answerField.getText();
+            if (isDecimal.equals(true)) {
+                input = calculator.decimalToQuaternary(Integer.parseInt(input));
+                isDecimal = false;
             }
-        }
-        else if (variable == divButton) {
-            if (isDecimal.equals(false)) {
-
-                input = answerField.getText();
-                operation = "/";
-                answerField.setText("");
+            operation = "/";
+            answerField.setText("");
+        } else if (variable == sqrtButton) {
+            input = answerField.getText();
+            if (isDecimal.equals(true)) {
+                input = calculator.decimalToQuaternary(Integer.parseInt(input));
+                isDecimal = false;
             }
-        }
-        else if (variable == sqrtButton){
-            if (isDecimal.equals(false)) {
-
-                int temp = 0;
-                int sqrt = 0;
-                input = answerField.getText();
-                temp = calculator.quaternaryToDecimal(input);
-                sqrt = calculator.squareRoot(temp);
-                answerField.setText(calculator.decimalToQuaternary(sqrt));
-            }
+            int temp;
+            int sqrt;
+            temp = calculator.quaternaryToDecimal(input);
+            sqrt = calculator.squareRoot(temp);
+            answerField.setText(calculator.decimalToQuaternary(sqrt));
         }
         else if (variable == squareButton){
-            if (isDecimal.equals(false)) {
-
-                input = answerField.getText();
-                int temp = 0;
-                int square = 0;
-                temp = calculator.quaternaryToDecimal(input);
-                square = calculator.square(temp);
-                answerField.setText(calculator.decimalToQuaternary(square));
+            input = answerField.getText();
+            if (isDecimal.equals(true)){
+                input = calculator.decimalToQuaternary(Integer.parseInt(input));
+                isDecimal=false;
             }
+            int temp;
+            int square;
+            temp = calculator.quaternaryToDecimal(input);
+            square = calculator.square(temp);
+            answerField.setText(calculator.decimalToQuaternary(square));
         }
         else if (variable == equalsButton) {
-            if (isDecimal.equals(false)) {
-
-                int temp = 0;
-                input2 = answerField.getText();
-                operationNumber1 = calculator.quaternaryToDecimal(input);
-                operationNumber2 = calculator.quaternaryToDecimal(input2);
-                temp = switch (operation) {
-                    case "+" -> calculator.add(operationNumber1, operationNumber2);
-                    case "-" -> calculator.subtract(operationNumber1, operationNumber2);
-                    case "x" -> calculator.multiply(operationNumber1, operationNumber2);
-                    case "/" -> calculator.divide(operationNumber1, operationNumber2);
-                    default -> temp;
-                };
-                answerField.setText(calculator.decimalToQuaternary(temp));
-                operation = "";
-                input2 = "";
-
+            int temp = 0;
+            input2 = answerField.getText();
+            if (isDecimal.equals(true)){
+                input2 = calculator.decimalToQuaternary(Integer.parseInt(input2));
+                isDecimal=false;
             }
+            operationNumber1 = calculator.quaternaryToDecimal(input);
+            operationNumber2 = calculator.quaternaryToDecimal(input2);
+            temp = switch (operation) {
+                case "+" -> calculator.add(operationNumber1, operationNumber2);
+                case "-" -> calculator.subtract(operationNumber1, operationNumber2);
+                case "x" -> calculator.multiply(operationNumber1, operationNumber2);
+                case "/" -> calculator.divide(operationNumber1, operationNumber2);
+                default -> temp;
+            };
+            answerField.setText(calculator.decimalToQuaternary(temp));
+            operation = "";
+            input2 = "";
         }
         else if (variable == clearButton){
             input = "";
