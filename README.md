@@ -14,8 +14,8 @@ A quaternary calcualtor that allows you to perform basic operations (addition, s
 - Kris Thurman = The system can do operations with two numbers, add calculator operation +, -, / & *.
 - Devlin Hicks = Bug tester & fixer, add quaternary to decimal and decimal to quaternary.
 - Jacob Clark = Build and design of the UI.
-- Ethan Hoffman = Add square & square root operations. 
-- Kc Weaver = Build and design of the UI.
+- Ethan Hoffman = Add square & square root operations.
+- Kc Weaver = Build and design of the UI, bug fixer for base conversion functionality.
 
 ## Meetings
 09/03/2024 10:35am - 10:45am
